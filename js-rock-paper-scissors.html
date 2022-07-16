@@ -20,7 +20,25 @@
             }
             return choice;
         }
-
+        function round (playerSelection, computerSelection){
+            player = playerSelection.toLowerCase();
+            //logic for who wins
+            if (player == "rock" && computerSelection == "paper"){
+                return "You lose! Paper beats rock!";
+            } else if (player == "rock" && computerSelection == "scissors"){
+                return "You win! Rock beats scissors!";
+            } else if (player == "paper" && computerSelection == "rock"){
+                return "You win! Paper beats rock!";
+            } else if (player == "paper" && computerSelection == "scissors"){
+                return "You loose! Scissors beat paper!";
+            } else if (player == "scissors" && computerSelection == "rock"){
+                return "You loose! Rock beats scissors!";
+            } else if (player == "scissors" && computerSelection == "paper"){
+                    return "You win! Scissors beat paper!";
+            } else {
+                return "Tie!";
+            }
+        }
         </script>
     </body>
 
