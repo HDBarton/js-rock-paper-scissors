@@ -1,0 +1,20 @@
+body{
+    font-family: "roboto", verdana, sans-serif;
+}
+
+button {
+    display: flex;
+    background-color:  #3882F6;
+    color: white;
+    border-radius: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: white 1px solid;
+}
+
+.title {
+    font-size: 48px;
+    font-weight: 900;
+}
