@@ -15,6 +15,7 @@ return choice;
 function round (playerSelection, computerSelection){
 player = playerSelection.toLowerCase();
 console.log()
+
 //logic for who wins
 if (player == "rock" && computerSelection == "paper"){
     return "You lose! Paper beats rock!";
@@ -61,5 +62,5 @@ if (playerScore === computerScore){
     console.log("You lost this game!");
 }
 }
-
-fiveRoundGame();
+//keeping games to a single round for now
+//fiveRoundGame();
