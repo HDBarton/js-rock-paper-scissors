@@ -1,3 +1,7 @@
+//declaration of variables
+let playerScore = 0;
+let computerScore = 0;
+
 //get a random choice of rock, paper, or scissors
 function getComputerChoice(){
 choice = 0;
@@ -12,24 +16,37 @@ if (random === 0) {
 return choice;
 }
 
+function runningTally(playerResult, computerResult) {
+    playerScore += playerResult;
+    computerScore += computerResult;
+    document.getElementById("tally").innerHTML = `You: ${playerScore}    Computer:  ${computerScore}`;
+}
+
 function round (playerSelection, computerSelection){
 player = playerSelection.toLowerCase();
 document.getElementById("compChoice").innerHTML = `<h2>${computerSelection}</h2>`;
 
 //logic for who wins
 if (player == "rock" && computerSelection == "paper"){
+    runningTally(0, 1);
     return `<h1>You lose!   Paper beats rock!</h1>`;
 } else if (player == "rock" && computerSelection == "scissors"){
+    runningTally(1, 0);
     return `<h1>You win!   Rock beats scissors!</h1>`;
 } else if (player == "paper" && computerSelection == "rock"){
+    runningTally(1, 0);
     return `<h1>You win!   Paper beats rock!</h1>`;
 } else if (player == "paper" && computerSelection == "scissors"){
+    runningTally(0, 1);
     return `<h1>You loose!   Scissors beat paper!</h1>`;
 } else if (player == "scissors" && computerSelection == "rock"){
+    runningTally(0, 1);
     return `<h1>You loose!   Rock beats scissors!</h1>`;
 } else if (player == "scissors" && computerSelection == "paper"){
+    runningTally(1, 0);
     return `<h1>You win!   Scissors beat paper!</h1>`;
 } else {
+    runningTally(1, 1);
     return `<h1>Tie!</h1>`;
 }
 }
