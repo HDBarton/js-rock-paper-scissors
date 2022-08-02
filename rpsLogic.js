@@ -30,7 +30,7 @@ if (player == "rock" && computerSelection == "paper"){
 } else if (player == "scissors" && computerSelection == "paper"){
     return `<h1>You win!   Scissors beat paper!</h1>`;
 } else {
-    return "Tie!";
+    return `<h1>Tie!</h1>`;
 }
 }
 
