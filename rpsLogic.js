@@ -14,7 +14,7 @@ return choice;
 
 function round (playerSelection, computerSelection){
 player = playerSelection.toLowerCase();
-console.log()
+document.getElementById("compChoice").innerHTML = `The computer chose ${computerSelection}`;
 
 //logic for who wins
 if (player == "rock" && computerSelection == "paper"){
@@ -33,10 +33,7 @@ if (player == "rock" && computerSelection == "paper"){
 }
 }
 
-//eventListener to get user choice, then display it, then dispay the computer's choice
-
-
-//let userChoice = "";
+//eventListener to get user choice
 
 const rock = document.getElementById("rock");
 rock.addEventListener("click", () => { play(rock.value); });
@@ -47,12 +44,15 @@ paper.addEventListener("click", () => { play(paper.value); });
 const scissors = document.querySelector('#scissors');
 scissors.addEventListener("click", () => { play(scissors.value); });
 
+//function to display user choice, then play game
 function play(userChoice){
     document.getElementById("yourChoice").innerHTML = `You chose: <h2> ${userChoice} </h2>`;
+    document.getElementById("result").innerHTML = `${round(userChoice, getComputerChoice())}`;
 }
 
 
-//ignoring this option for now
+//IGNORING THIS OPTION FOR NOW
+/*
 function fiveRoundGame (){
 playerScore = 0;
 computerScore = 0;
@@ -84,3 +84,4 @@ if (playerScore === computerScore){
 }
 //keeping games to a single round for now
 //fiveRoundGame();
+*/
