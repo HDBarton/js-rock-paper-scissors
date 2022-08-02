@@ -5,7 +5,7 @@ body{
     align-items: center;
 }
 
-.userChoice {
+.userChooses {
     display: flex;
     flex-direction: row;
     align-content: center;
