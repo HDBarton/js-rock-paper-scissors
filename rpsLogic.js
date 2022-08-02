@@ -1,54 +1,71 @@
 //declaration of variables
 let playerScore = 0;
 let computerScore = 0;
+let round = 0;
 
 //get a random choice of rock, paper, or scissors
 function getComputerChoice(){
-choice = 0;
-random = Math.floor(Math.random() * 3);
-if (random === 0) {
-    choice = 'rock';
-} else if (random === 1) {
-    choice = 'paper';
-} else{
-    choice = 'scissors';
-}
-return choice;
+    let choice = 0;
+    let random = Math.floor(Math.random() * 3);
+    if (random === 0) {
+        choice = 'rock';
+    } else if (random === 1) {
+        choice = 'paper';
+    } else{
+        choice = 'scissors';
+    }
+    return choice;
 }
 
+//logic for determining winner after 5 rounds
+function conclusion(finalPlayer, finalComputer){
+    let winner = "";
+    if (finalPlayer > finalComputer){
+        winner = "You are";
+    } else {
+        winner = "The computer is";
+    }
+    document.getElementById("finalConclusion").innerHTML = `<h1>${winner} the grand champion!</h1>`;
+}
+
+//keeps and displays running tally, send to conclusion after 5 rounds
 function runningTally(playerResult, computerResult) {
     playerScore += playerResult;
     computerScore += computerResult;
     document.getElementById("tally").innerHTML = `You: ${playerScore}    Computer:  ${computerScore}`;
+    round++;
+    if (round%4 === 0){
+        conclusion(playerScore, computerScore);
+    }
 }
 
-function round (playerSelection, computerSelection){
-player = playerSelection.toLowerCase();
-document.getElementById("compChoice").innerHTML = `<h2>${computerSelection}</h2>`;
+function playRound (playerSelection, computerSelection){
+    let player = playerSelection.toLowerCase();
+    document.getElementById("compChoice").innerHTML = `<h2>${computerSelection}</h2>`;
 
-//logic for who wins
-if (player == "rock" && computerSelection == "paper"){
-    runningTally(0, 1);
-    return `<h1>You lose!   Paper beats rock!</h1>`;
-} else if (player == "rock" && computerSelection == "scissors"){
-    runningTally(1, 0);
-    return `<h1>You win!   Rock beats scissors!</h1>`;
-} else if (player == "paper" && computerSelection == "rock"){
-    runningTally(1, 0);
-    return `<h1>You win!   Paper beats rock!</h1>`;
-} else if (player == "paper" && computerSelection == "scissors"){
-    runningTally(0, 1);
-    return `<h1>You loose!   Scissors beat paper!</h1>`;
-} else if (player == "scissors" && computerSelection == "rock"){
-    runningTally(0, 1);
-    return `<h1>You loose!   Rock beats scissors!</h1>`;
-} else if (player == "scissors" && computerSelection == "paper"){
-    runningTally(1, 0);
-    return `<h1>You win!   Scissors beat paper!</h1>`;
-} else {
-    runningTally(1, 1);
-    return `<h1>Tie!</h1>`;
-}
+    //logic for who wins
+    if (player == "rock" && computerSelection == "paper"){
+        runningTally(0, 1);
+        return `<h3>You lose!   Paper beats rock!</h3>`;
+    } else if (player == "rock" && computerSelection == "scissors"){
+        runningTally(1, 0);
+        return `<h3>You win!   Rock beats scissors!</h3>`;
+    } else if (player == "paper" && computerSelection == "rock"){
+        runningTally(1, 0);
+        return `<h3>You win!   Paper beats rock!</h3>`;
+    } else if (player == "paper" && computerSelection == "scissors"){
+        runningTally(0, 1);
+        return `<h3>You loose!   Scissors beat paper!</h3>`;
+    } else if (player == "scissors" && computerSelection == "rock"){
+        runningTally(0, 1);
+        return `<h3>You loose!   Rock beats scissors!</h3>`;
+    } else if (player == "scissors" && computerSelection == "paper"){
+        runningTally(1, 0);
+        return `<h3>You win!   Scissors beat paper!</h3>`;
+    } else {
+        runningTally(1, 1);
+        return `<h3>Tie!</h3>`;
+    }
 }
 
 //eventListener to get user choice
@@ -65,7 +82,7 @@ scissors.addEventListener("click", () => { play(scissors.value); });
 //function to display user choice, then play game
 function play(userChoice){
     document.getElementById("yourChoice").innerHTML = `<h2>${userChoice} </h2>`;
-    document.getElementById("result").innerHTML = `${round(userChoice, getComputerChoice())}`;
+    document.getElementById("result").innerHTML = `${playRound(userChoice, getComputerChoice())}`;
 }
 
 
