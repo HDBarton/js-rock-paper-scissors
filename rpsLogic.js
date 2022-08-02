@@ -1,3 +1,7 @@
+//eventListener to get user choice
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
 
 //get a random choice of rock, paper, or scissors
 function getComputerChoice(){
