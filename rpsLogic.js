@@ -34,7 +34,7 @@ function runningTally(playerResult, computerResult) {
     computerScore += computerResult;
     document.getElementById("tally").innerHTML = `You: ${playerScore} &nbsp;&nbsp;&nbsp;&nbsp; Computer:  ${computerScore}`;
     round++;
-    if (round%4 === 0){
+    if (round%5 === 0){
         conclusion(playerScore, computerScore);
     }
 }
