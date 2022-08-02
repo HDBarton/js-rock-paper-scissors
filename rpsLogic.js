@@ -1,9 +1,11 @@
 //eventListener to get user choice
 const userChoice = "";
 const rock = document.querySelector('#rock');
-rock.onclick= () => alert("You chose Rock!");
-const paper = document.querySelector('#paper').value;
-const scissors = document.querySelector('#scissors').value;
+rock.onclick= () => alert(`You chose ${document.querySelector('#rock').value}`);
+const paper = document.querySelector('#paper');
+paper.onclick= () => alert(`You chose ${document.querySelector('#paper').value}`);
+const scissors = document.querySelector('#scissors');
+scissors.onclick = () => alert(`Your chose ${document.querySelector('#scissors').value}`);
 
 
 
