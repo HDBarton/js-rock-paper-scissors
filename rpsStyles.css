@@ -11,6 +11,25 @@ body{
     align-content: center;
 }
 
+.player {
+    display: flex;
+    flex-direction: row;
+}
+
+#yourChoice {
+    padding-left: 20px;
+
+}
+
+.computer {
+    display: flex;
+    flex-direction: row;
+}
+
+#compChoice {
+    padding-left: 20px;
+
+}
 button {
     display: flex;
     border-color: grey;
@@ -30,4 +49,8 @@ button {
 
 h2 {
     color: blue;
+}
+
+#finalConclusion {
+    color: red;
 }
