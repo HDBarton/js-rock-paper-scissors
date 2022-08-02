@@ -1,20 +1,3 @@
-//eventListener to get user choice
-let userChoice = "";
-
-const rock = document.querySelector('#rock');
-rock.onclick= () => { userChoice = document.querySelector('#rock').value; 
-    document.getElementById("yourChoice").innerHTML = `You chose: <h2> ${userChoice} </h2>`};
-const paper = document.querySelector('#paper');
-paper.onclick= () => { userChoice = document.querySelector('#paper').value;
-    document.getElementById("yourChoice").innerHTML = `You chose: <h2> ${userChoice} </h2>`};
-const scissors = document.querySelector('#scissors');
-scissors.onclick = () => { userChoice = document.querySelector('#scissors').value;
-    document.getElementById("yourChoice").innerHTML = `You chose: <h2> ${userChoice} </h2>`};
-
-//display what the user chose to the user as feedback
-
-
-
 //get a random choice of rock, paper, or scissors
 function getComputerChoice(){
 choice = 0;
@@ -28,6 +11,7 @@ if (random === 0) {
 }
 return choice;
 }
+
 function round (playerSelection, computerSelection){
 player = playerSelection.toLowerCase();
 console.log()
@@ -49,6 +33,26 @@ if (player == "rock" && computerSelection == "paper"){
 }
 }
 
+//eventListener to get user choice, then display it, then dispay the computer's choice
+
+
+//let userChoice = "";
+
+const rock = document.getElementById("rock");
+rock.addEventListener("click", () => { play(rock.value); });
+
+const paper = document.querySelector('#paper');
+paper.addEventListener("click", () => { play(paper.value); });
+
+const scissors = document.querySelector('#scissors');
+scissors.addEventListener("click", () => { play(scissors.value); });
+
+function play(userChoice){
+    document.getElementById("yourChoice").innerHTML = `You chose: <h2> ${userChoice} </h2>`;
+}
+
+
+//ignoring this option for now
 function fiveRoundGame (){
 playerScore = 0;
 computerScore = 0;
