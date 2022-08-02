@@ -14,20 +14,21 @@ return choice;
 
 function round (playerSelection, computerSelection){
 player = playerSelection.toLowerCase();
-document.getElementById("compChoice").innerHTML = `The computer chose ${computerSelection}`;
+document.getElementById("compChoice").innerHTML = `<h2>${computerSelection}</h2>`;
 
 //logic for who wins
 if (player == "rock" && computerSelection == "paper"){
-    return "You lose! Paper beats rock!";
+    return `<h1>You lose!   Paper beats rock!</h1>`;
 } else if (player == "rock" && computerSelection == "scissors"){
-    return "You win! Rock beats scissors!";
-    return "You win! Paper beats rock!";
+    return `<h1>You win!   Rock beats scissors!</h1>`;
+} else if (player == "paper" && computerSelection == "rock"){
+    return `<h1>You win!   Paper beats rock!</h1>`;
 } else if (player == "paper" && computerSelection == "scissors"){
-    return "You loose! Scissors beat paper!";
+    return `<h1>You loose!   Scissors beat paper!</h1>`;
 } else if (player == "scissors" && computerSelection == "rock"){
-    return "You loose! Rock beats scissors!";
+    return `<h1>You loose!   Rock beats scissors!</h1>`;
 } else if (player == "scissors" && computerSelection == "paper"){
-    return "You win! Scissors beat paper!";
+    return `<h1>You win!   Scissors beat paper!</h1>`;
 } else {
     return "Tie!";
 }
@@ -46,7 +47,7 @@ scissors.addEventListener("click", () => { play(scissors.value); });
 
 //function to display user choice, then play game
 function play(userChoice){
-    document.getElementById("yourChoice").innerHTML = `You chose: <h2> ${userChoice} </h2>`;
+    document.getElementById("yourChoice").innerHTML = `<h2>${userChoice} </h2>`;
     document.getElementById("result").innerHTML = `${round(userChoice, getComputerChoice())}`;
 }
 
